@@ -1,11 +1,14 @@
 """
 
 
-* created on: 19-Aug-24
+* bootstrapped on: 19-Aug-24
 * last updated on: 19-Aug-24
 
 """
 
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
 
 
 def monotonicity(u, v):
@@ -14,9 +17,6 @@ def monotonicity(u, v):
     see https://thescipub.com/pdf/jmssp.2012.221.228.pdf
     this is the absolute value of their 'rm' (sample version of the measure)
     we ignore the sign since we don't care about the sense of the correlation
-
-    
-
     """
     # rescale to 0,1
     u = (u - np.min(u))/(np.max(u)-np.min(u))
@@ -31,3 +31,5 @@ def monotonicity(u, v):
         vp = np.flip(vp)
     covp = np.sum((up-np.mean(up))*(vp-np.mean(vp)))/(up.shape[0]-1)
     return cov/covp
+
+
